@@ -30,7 +30,7 @@ namespace MuzicStore.Tester
         [Priority(10)]
         public void should_create_new_album()
         {
-            DatabaseConnections.Provider.GetService<AlbumService>().CreateNewAlbum("Adele", "Adele (Deulxe Edition)");
+            Initializer.Provider.GetService<AlbumService>().CreateNewAlbum("Adele", "Adele (Deulxe Edition)");
         }
 
 
@@ -39,7 +39,7 @@ namespace MuzicStore.Tester
         [Priority(20)]
         public void should_load_aggregate()
         {
-            var album = DatabaseConnections.Provider.GetService<AlbumService>().GetAlbum(Guid.Empty.ToString());
+            var album = Initializer.Provider.GetService<AlbumService>().GetAlbum(Guid.Empty.ToString());
         }
 
 

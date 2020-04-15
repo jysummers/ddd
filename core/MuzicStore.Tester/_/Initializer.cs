@@ -8,7 +8,7 @@ using Nadir.RabbitMQ;
 namespace MuzicStore.Tester
 {
     [TestClass]
-    public class DatabaseConnections
+    public class Initializer
     {
         [AssemblyInitialize]
         public static void AssemblyInitialize(TestContext context)

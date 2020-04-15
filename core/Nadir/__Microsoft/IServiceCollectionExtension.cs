@@ -3,7 +3,7 @@ using System;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class LibraryExtension
+    public static class IServiceCollectionExtension
     {
         public static AppBuilder ConfigureCore(this IServiceCollection services, Action<CoreBuilder> configure)
         {

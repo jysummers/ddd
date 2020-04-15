@@ -8,9 +8,9 @@ using System.Text;
 
 namespace Nadir.EventStore
 {
-    class Storage : IStorage
+    class Depot : IDepot
     {
-        public Storage(IStorageEndpoint endpoint)
+        public Depot(IStorageEndpoint endpoint)
         {
             Endpoint = endpoint as EventStoreEndpoint;
         }

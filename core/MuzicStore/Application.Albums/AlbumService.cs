@@ -8,7 +8,7 @@ namespace MuzicStore.Application.Albums
 {
     public class AlbumService
     {
-        public AlbumService(IFactory factory, IBus bus, IStorage storage)
+        public AlbumService(IFactory factory, IBus bus, IDepot storage)
         {
             Factory = factory;
             Bus = bus;
@@ -68,6 +68,6 @@ namespace MuzicStore.Application.Albums
 
         private readonly IBus Bus;
 
-        private readonly IStorage Storage;
+        private readonly IDepot Storage;
     }
 }

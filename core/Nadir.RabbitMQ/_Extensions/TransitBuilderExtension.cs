@@ -1,11 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nadir.Network;
+using Nadir.RabbitMQ;
 using Nadir.Transit;
 using System;
 
-namespace Nadir.RabbitMQ
+namespace Nadir
 {
-    public static class AppExtension
+    public static class TransitBuilderExtension
     {
         public static void UseRabbitMQ(this TransitBuilder builder, Func<ITransitEndpoint> initiate)
         {

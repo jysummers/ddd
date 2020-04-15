@@ -1,11 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Nadir.EventStore;
 using Nadir.Network;
 using Nadir.Storage;
 using System;
 
-namespace Nadir.EventStore
+namespace Nadir
 {
-    public static class AppExtension
+    public static class StorageBuilderExtension
     {
         public static void UseEventStore(this StorageBuilder builder, Func<IStorageEndpoint> initiate)
         {
@@ -13,7 +14,7 @@ namespace Nadir.EventStore
 
 
 
-            builder.Services.AddScoped<IStorage, Storage>();
+            builder.Services.AddScoped<IDepot, Depot>();
             builder.Services.AddScoped<IPersistor, Persistor>();
         }
     }

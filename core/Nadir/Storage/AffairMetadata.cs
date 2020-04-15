@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nadir.Core
+namespace Nadir.Storage
 {
     public class AffairMetadata
     {

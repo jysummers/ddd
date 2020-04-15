@@ -3,7 +3,7 @@ using System;
 
 namespace Nadir.Storage
 {
-    public interface IStorage
+    public interface IDepot
     {
         T Load<T>(Guid guid)
             where T : Aggregate;

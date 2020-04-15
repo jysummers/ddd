@@ -5,7 +5,7 @@ namespace Nadir.EventStore
 {
     class Persistor : IPersistor
     {
-        public Persistor(IStorage storage)
+        public Persistor(IDepot storage)
         {
             Storage = storage;
         }
@@ -24,6 +24,6 @@ namespace Nadir.EventStore
 
 
 
-        IStorage Storage;
+        IDepot Storage;
     }
 }

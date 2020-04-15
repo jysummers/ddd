@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nadir.RabbitMQ", "Nadir.Rab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nadir.EventStore", "Nadir.EventStore\Nadir.EventStore.csproj", "{E9A7529E-C999-4B32-B15F-85512F011026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuzicStore.Infrastructure", "MuzicStore.Infrastructure\MuzicStore.Infrastructure.csproj", "{5668CF85-D8C0-4957-B0E7-F2DBB0A29F76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuzicStore.Infrastructure", "MuzicStore.Infrastructure\MuzicStore.Infrastructure.csproj", "{5668CF85-D8C0-4957-B0E7-F2DBB0A29F76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{DA82EA3C-79EB-4078-82B8-F7CA3DCAA39B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{4239E6F8-54D4-4145-8B2E-C83AB50C1D0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +58,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{829E6321-1055-451D-81FB-CA6E0285B5D2} = {DA82EA3C-79EB-4078-82B8-F7CA3DCAA39B}
+		{E1B0D286-9E00-43DD-8EFD-5ECF00652640} = {4239E6F8-54D4-4145-8B2E-C83AB50C1D0A}
+		{2B7B0A90-504C-418F-B7E1-D1067BE76189} = {4239E6F8-54D4-4145-8B2E-C83AB50C1D0A}
+		{C67EC3DB-5549-4527-B571-D3DEBA2279EA} = {4239E6F8-54D4-4145-8B2E-C83AB50C1D0A}
+		{CFF74869-A57C-4E1E-A840-8CA3A413DA0A} = {DA82EA3C-79EB-4078-82B8-F7CA3DCAA39B}
+		{E9A7529E-C999-4B32-B15F-85512F011026} = {DA82EA3C-79EB-4078-82B8-F7CA3DCAA39B}
+		{5668CF85-D8C0-4957-B0E7-F2DBB0A29F76} = {4239E6F8-54D4-4145-8B2E-C83AB50C1D0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D1F8141-AD80-4EB3-BDF3-40EAFADEC5BE}
