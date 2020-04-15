@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+#  nadir.unittest:
+
+
+
+  eventstore:
+    network_mode: bridge
+    extra_hosts:
+      - 'localhost:172.17.0.1'
+    ports:
+      - '2113:2113'
+      - '1113:1113'
+    volumes:
+      - eventstore-vol:/var/lib/eventstore
+
+
+
+  rabbitmq:
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    hostname: rabbitmq
+    network_mode: bridge
+    extra_hosts:
+      - 'localhost:172.17.0.1'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - rabbitmq-vol:/var/lib/rabbitmq
+
+
+
+volumes:
+  eventstore-vol:
+  rabbitmq-vol:
