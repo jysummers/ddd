@@ -10,7 +10,7 @@ services:
 
 
   eventstore:
-    image: eventstore/eventstore
+    image: eventstore/eventstore:release-5.0.8
     hostname: eventstore
     network_mode: bridge
     extra_hosts:

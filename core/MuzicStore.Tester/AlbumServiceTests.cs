@@ -28,18 +28,18 @@ namespace MuzicStore.Tester
 
         [TestMethod]
         [Priority(10)]
-        public void should_create_new_album()
+        public void should_generate_album()
         {
-            Initializer.Provider.GetService<AlbumService>().CreateNewAlbum("Adele", "Adele (Deulxe Edition)");
+            Initializer.Provider.GetService<AlbumService>().CreateAlbum("Adele", "Adele (Deulxe Edition)");
         }
 
 
 
         [TestMethod]
         [Priority(20)]
-        public void should_load_aggregate()
+        public void should_retrieve_album()
         {
-            var album = Initializer.Provider.GetService<AlbumService>().GetAlbum(Guid.Empty.ToString());
+            var album = Initializer.Provider.GetService<AlbumService>().ReadAlbum(Guid.Empty.ToString());
         }
 
 

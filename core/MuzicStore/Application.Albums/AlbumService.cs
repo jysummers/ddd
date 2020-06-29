@@ -19,16 +19,7 @@ namespace MuzicStore.Application.Albums
 
 
 
-        public Album GetAlbum(string id)
-        {
-            var album = Storage.Load<Album>(Guid.Parse(id));
-
-            return album;
-        }
-
-
-
-        public void CreateNewAlbum(string name, string title)
+        public void CreateAlbum(string name, string title)
         {
             var album = Factory.Create<Album>(Guid.NewGuid());
 
@@ -36,6 +27,15 @@ namespace MuzicStore.Application.Albums
             album.UpdateTitle(title);
 
             Bus.Dispatch(album);
+        }
+
+
+
+        public Album ReadAlbum(string id)
+        {
+            var album = Storage.Load<Album>(Guid.Parse(id));
+
+            return album;
         }
 
 
