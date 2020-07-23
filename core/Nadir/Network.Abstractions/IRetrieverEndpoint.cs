@@ -1,6 +1,6 @@
 ﻿namespace Nadir.Network
 {
-    public interface IStorageEndpoint
+    public interface IRetrieverEndpoint
     {
         void Connect();
 

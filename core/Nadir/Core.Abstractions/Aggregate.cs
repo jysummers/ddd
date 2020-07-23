@@ -1,9 +1,11 @@
-﻿using Nadir.Newtonsoft;
+﻿using Fasterflect;
+using Nadir.Newtonsoft;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Nadir.Core
 {
@@ -12,6 +14,8 @@ namespace Nadir.Core
         protected Aggregate(AggregateId id)
         {
             Id = id;
+
+            RegisterMutatorsInternal();
         }
 
 
@@ -25,7 +29,7 @@ namespace Nadir.Core
 
             var id = new AggregateId(classification: GetType(), identification: guid);
 
-            Raise(new AggregateCreated(id), OnAggregateCreated);
+            Raise(new AggregateCreated(id));
         }
 
 
@@ -37,14 +41,34 @@ namespace Nadir.Core
 
 
 
-        protected internal void Raise<T>(T affair, Apply<T> mutator)
+        protected internal void Raise<T>(T affair)
             where T : Affair
         {
-            if (mutator == null)
-                throw new NullMutatorException();
-
             Changes.Add(affair);
-            mutator(affair);
+            Mutate(affair);
+        }
+
+
+
+        public void Mutate<T>(T affair)
+            where T : Affair
+        {
+            var methodName = Mutators.Single(m => m.Key == typeof(T)).Value;
+
+            if (methodName is null)
+                throw new InvalidMutationException($"No registered method found for {nameof(T)}.");
+
+            var method = GetType().Method(methodName, new[] { typeof(T) }, Flags.InstancePrivate);
+
+            method.Invoke(this, new[] { affair });
+        }
+
+
+
+        private void RegisterMutatorsInternal()
+        {
+            Mutators.Add(typeof(AggregateCreated), nameof(OnAggregateCreated));
+            RegisterMutators(Mutators);
         }
 
 
@@ -81,10 +105,18 @@ namespace Nadir.Core
 
 
 
+        protected abstract void RegisterMutators(IDictionary<Type, string> mutators);
+
+
+
+
+
         public AggregateId Id { get; private set; }
 
 
 
         public readonly IList<Affair> Changes = new List<Affair>();
+
+        private readonly IDictionary<Type, string> Mutators = new Dictionary<Type, string>();
     }
 }

@@ -8,6 +8,7 @@ namespace Nadir.Storage
         T Load<T>(Guid guid)
             where T : Aggregate;
 
+        [Obsolete("This will be removed in future releases.")]
         T Load<T, U>(U aggregateId)
             where T : Aggregate
             where U : AggregateId;

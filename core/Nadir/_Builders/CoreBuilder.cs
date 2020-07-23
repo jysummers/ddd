@@ -23,6 +23,7 @@ namespace Nadir
             Services.AddSingleton<Endpoints>();
 
             Services.AddScoped<IFactory, Factory>();
+            Services.AddScoped<IDepot, Depot>();
         }
 
 
@@ -34,11 +35,17 @@ namespace Nadir
 
 
 
-        public void ConfigureStorage(Action<StorageBuilder> configure)
+        public void ConfigurePersistor(Action<PersistorBuilder> configure)
         {
-            configure(new StorageBuilder(Services));
+            configure(new PersistorBuilder(Services));
         }
 
+
+
+        public void ConfigureRetriever(Action<RetrieverBuilder> configure)
+        {
+            configure(new RetrieverBuilder(Services));
+        }
 
 
 

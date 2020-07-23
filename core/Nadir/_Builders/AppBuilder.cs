@@ -48,7 +48,12 @@ namespace Nadir
             }
 
             {
-                var endpoint = provider.GetService<IStorageEndpoint>();
+                var endpoint = provider.GetService<IPersistorEndpoint>();
+                endpoint.Connect();
+            }
+
+            {
+                var endpoint = provider.GetService<IRetrieverEndpoint>();
                 endpoint.Connect();
             }
 

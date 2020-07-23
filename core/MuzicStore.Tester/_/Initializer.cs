@@ -23,7 +23,8 @@ namespace MuzicStore.Tester
 
                 builder.ConfigureCore();
                 builder.ConfigureTransit(transit => transit.UseRabbitMQ(() => endpoints.TransitEndpoint));
-                builder.ConfigureStorage(storage => storage.UseEventStore(() => endpoints.StorageEndpoint));
+                builder.ConfigurePersistor(persistor => persistor.UseEventStore(() => endpoints.PersistorEndpoint));
+                builder.ConfigureRetriever(retriever => retriever.UseEventStore(() => endpoints.RetrieverEndpoint));
 
                 builder.ConfigureMuzicStore();
             });
@@ -54,9 +55,10 @@ namespace MuzicStore.Tester
         private static Endpoints CreateNewEndpoints()
         {
             var transitEndpoint = new RabbitMQEndpoint(username: "admin", password: "admin", hostname: "localhost");
-            var storageEndpoint = new EventStoreEndpoint(username: "admin", password: "changeit", hostname: "localhost", port: 1113);
+            var persistorEndpoint = new EventStoreEndpoint(username: "admin", password: "changeit", hostname: "localhost", port: 1113);
+            var retrieverEndpoint = new EventStoreEndpoint(username: "admin", password: "changeit", hostname: "localhost", port: 1113);
 
-            return new Endpoints(transitEndpoint, storageEndpoint);
+            return new Endpoints(transitEndpoint, persistorEndpoint, retrieverEndpoint);
         }
 
 

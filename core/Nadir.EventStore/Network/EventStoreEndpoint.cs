@@ -4,7 +4,7 @@ using System;
 
 namespace Nadir.EventStore
 {
-    public class EventStoreEndpoint : IStorageEndpoint
+    public class EventStoreEndpoint : IPersistorEndpoint, IRetrieverEndpoint
     {
         public EventStoreEndpoint()
         {

@@ -2,10 +2,11 @@
 {
     public class Endpoints
     {
-        public Endpoints(ITransitEndpoint transitEndpoint, IStorageEndpoint storageEndpoint)
+        public Endpoints(ITransitEndpoint transitEndpoint, IPersistorEndpoint perosistorEndpoint, IRetrieverEndpoint retrieverEndpoint)
         {
             TransitEndpoint = transitEndpoint;
-            StorageEndpoint = storageEndpoint;
+            PersistorEndpoint = perosistorEndpoint;
+            RetrieverEndpoint = retrieverEndpoint;
         }
 
 
@@ -14,6 +15,8 @@
 
         public ITransitEndpoint TransitEndpoint { get; set; }
 
-        public IStorageEndpoint StorageEndpoint { get; set; }
+        public IPersistorEndpoint PersistorEndpoint { get; set; }
+
+        public IRetrieverEndpoint RetrieverEndpoint { get; set; }
     }
 }

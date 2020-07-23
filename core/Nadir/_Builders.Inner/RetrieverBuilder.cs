@@ -2,9 +2,9 @@
 
 namespace Nadir
 {
-    public class StorageBuilder
+    public class RetrieverBuilder
     {
-        public StorageBuilder(IServiceCollection services)
+        public RetrieverBuilder(IServiceCollection services)
         {
             Services = services;
         }
